@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signal Color Message App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Signal Color Message App</h1>
+    <label for="colorSelect">Choose a color:</label>
+    <select id="colorSelect" onchange="showMessage()">
+        <option value="">Select a color</option>
+        <option value="red">Red</option>
+        <option value="yellow">Yellow</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="orange">Orange</option>
+    </select>
+
+    <div class="message" id="message"></div>
+
+    <script>
+        function showMessage() {
+            const colorSelect = document.getElementById('colorSelect');
+            const messageDiv = document.getElementById('message');
+            const selectedColor = colorSelect.value;
+
+            let message = '';
+
+            switch (selectedColor) {
+                case 'red':
+                    message = 'Stop! Danger ahead.';
+                    break;
+                case 'yellow':
+                    message = 'Caution! Proceed with care.';
+                    break;
+                case 'green':
+                    message = 'Go! Safe to proceed.';
+                    break;
+                case 'blue':
+                    message = 'Information! Check your surroundings.';
+                    break;
+                case 'orange':
+                    message = 'Warning! Be alert.';
+                    break;
+                default:
+                    message = '';
+            }
+
+            messageDiv.textContent = message;
+            messageDiv.style.color = selectedColor; // Change text color to selected color
+        }
+    </script>
+
+</body>
+</html>
